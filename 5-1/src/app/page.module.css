@@ -1,0 +1,71 @@
+.button{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 20%;
+}
+
+.openButton{
+    color: #ffffff;
+    background-color: #0000cd;
+    transition-duration: 2s;
+}
+
+.openButton:hover{
+    color: #c71585;
+    background-color: #ffe0ff;
+}
+
+.closeButton{
+    color: #ffffff;
+    background-color: #66FF33;
+    transition-duration: 2s;
+}
+
+.closeButton:hover{
+    color: #FFFF00;
+    background-color: #330066;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.8s ease forwards;
+}
+.ReactModal__Overlay--before-close {
+    animation: fadeOut 0.8s ease forwards;
+}
+
+
+.modalContent{
+    width: 80%;
+    height: auto;
+    max-width: 420px;
+    min-width: 200px;
+    padding: 25px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 50%;
+    background-color: antiquewhite;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 背景フェードアウト */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@media (max-width: 768px){
+  
+}
