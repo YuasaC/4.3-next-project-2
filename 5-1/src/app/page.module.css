@@ -67,5 +67,21 @@
 }
 
 @media (max-width: 768px){
-  
+.modalContent{
+    width: 90%;
+    padding: 15px;
+    font-size: 14px;
+    }
+
+.openButton,
+.closeButton{
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.phrase{
+    font-size: 14px;
+    }
 }

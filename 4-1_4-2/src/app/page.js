@@ -19,8 +19,6 @@ export default function inputForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, message }),
       });
-      console.log("status code:", response.status);
-      console.log("response text:", await response.text());
       if (response.ok) {
         setStatus("success")
         setName("");

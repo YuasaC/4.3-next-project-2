@@ -10,7 +10,7 @@ export default function Contact() {
     const handleSubmit = (event) => {
         event.preventDefault();
         setSubmit(true);
-        alert(`OK!`)
+        alert(`送信完了★`)
         setContact("")
     }
 

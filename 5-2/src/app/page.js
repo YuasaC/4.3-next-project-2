@@ -44,6 +44,20 @@ export default function CardList() {
       explain: "ことりポケモン",
       url: "https://zukan.pokemon.co.jp/detail/0177",
     },
+    {
+      id: 5,
+      image: "https://zukan.pokemon.co.jp/zukan-api/up/images/index/00703c593dc908da0682f688ef8f36c4.png",
+      title: "トゲピー",
+      explain: "はりたまポケモン",
+      url: "https://zukan.pokemon.co.jp/detail/0175",
+    },
+    {
+      id: 6,
+      image: "https://zukan.pokemon.co.jp/zukan-api/up/images/index/845e9fd91e89712aa34e372f4e7449da.png",
+      title: "バネブー",
+      explain: "とびはねポケモン",
+      url: "https://zukan.pokemon.co.jp/detail/0325",
+    },
   ]
   return (
     <div className={styles.wrapper}>
