@@ -7,31 +7,43 @@ export default function MemberRegister() {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [tel, setTel] = useState("");
+  const [errorName, setErrorName] = useState(""); //error処理
+  const [errorEmail, setErrorEmail] = useState(""); //error処理
+  const [errorAddress, setErrorAddress] = useState(""); //error処理
+  const [errorTel, setErrorTel] = useState(""); //error処理
   const [currentStep, setCurrentStep] = useState(1);
-  const [sending, setSending] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
+  const [sending, setSending] = useState(false);//送信ボタン実装
+  const [submitted, setSubmitted] = useState(false);//送信処理実装
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    //まずバリデーション
+    setErrorName("");
+    setErrorEmail("");
+    setErrorAddress("");
+    setErrorTel("");
+
+    let hasError = false; //途中でtrueに変わるためconst宣言✖
+
     if (name.trim() === "") {
-      setError("名前を入力してください。");
-      return;
-    } else if (email.trim() === "") {
-      setError("Emailを入力してください。");
-      return;
-    } else if (address.trim() === "") {
-      setError("住所を入力してください。");
-      return;
-    } else if (tel.trim() === "") {
-      setError("電話番号を入力してください。");
-      return;
+      setErrorName("名前を入力してください。");
+      hasError = true;
+    }
+    if (email.trim() === "") {
+      setErrorEmail("Emailを入力してください。");
+      hasError = true;
+    }
+    if (address.trim() === "") {
+      setErrorAddress("住所を入力してください");
+      hasError = true;
+    } if (tel.trim() === "") {
+      setErrorTel("電話番号を入力してください。")
+      hasError = true;
     }
 
+    if (hasError) return; //エラーがあれば処理を中断する。
+
     //問題なければ送信処理
-    setError("");
     setSending(true);
     setSubmitted(false);
 
@@ -85,7 +97,6 @@ export default function MemberRegister() {
             </label>
           </form>
           <button onClick={nextStep}>次へ</button>
-          {error && <p style={{ color: "red" }}>{error}</p>}
         </>
       )}
 
@@ -97,10 +108,13 @@ export default function MemberRegister() {
           <p>住所: {address}</p>
           <p>電話番号: {tel}</p>
           <button onClick={prevStep}>戻る</button>
+          {errorName && <p style={{ color: "red" }}>{errorName}</p>}
+          {errorEmail && <p style={{ color: "red" }}>{errorEmail}</p>}
+          {errorAddress && <p style={{ color: "red" }}>{errorAddress}</p>}
+          {errorTel && <p style={{ color: "red" }}>{errorTel}</p>}
           <button onClick={handleSubmit} disabled={sending}>
             {sending ? "送信中..." : "送信"}
           </button>
-          {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
       )}
 
